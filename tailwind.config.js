@@ -1,17 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: ["src/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-
-
       fontFamily: {
-        'roboto': ["Roboto", "sans-serif"]
-       },
+        roboto: ["Roboto", "sans-serif"],
+      },
 
-
-       
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -55,4 +51,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
