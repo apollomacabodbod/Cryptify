@@ -6,12 +6,18 @@ const TopStatsBar = () => {
   useEffect(() => {
     const fetchGlobalData = async () => {
       try {
-        const url =
-          "https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=CG-CZHWxaGw8ZbiXW9NBsKTzm6P";
+        // 1. Grab the key from the .env file
+        const apiKey = process.env.REACT_APP_COINGECKO_API_KEY;
+
+        // 2. Insert it into the URL
+        const url = `https://api.coingecko.com/api/v3/global?x_cg_demo_api_key=${apiKey}`;
+
         const response = await fetch(url);
         const json = await response.json();
         setData(json.data);
-      } catch (err) {}
+      } catch (err) {
+        console.error("Failed to fetch global data:", err);
+      }
     };
     fetchGlobalData();
   }, []);
